@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>يوتيوب</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="nav-left">
+      <button class="icon-btn" id="menuBtn" title="القائمة">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+      <a href="#" class="logo" id="logoBtn">
+        <span class="logo-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="logo-text">YouTube</span>
+      </a>
+    </div>
+    <div class="nav-center" id="navCenter">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث..." autocomplete="off">
+        <button id="searchBtn" class="search-btn" title="بحث">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn mobile-search-btn" id="mobileSearchBtn" title="بحث">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      </button>
+      <button class="icon-btn" id="uploadBtn" title="تحميل فيديو">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M9 16h6v-6h4l-7-7-7 7h4v6zm-4 2h14v2H5v-2z"/></svg>
+      </button>
+      <button class="icon-btn" id="settingsBtn" title="الإعدادات">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.48-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+      </button>
+      <div class="avatar" id="avatarBtn" title="حسابي">؟</div>
+    </div>
+  </header>
+
+  <div class="overlay" id="overlay"></div>
+
+  <div class="main-container">
+    <aside class="sidebar" id="sidebar">
+      <a href="#" class="side-item active" data-page="home">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></span>الرئيسية
+      </a>
+      <a href="#" class="side-item" data-page="shorts">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.77 10.32l-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zM10 14.65v-5.3L15 12l-5 2.65z"/></svg></span>شورتس
+      </a>
+      <a href="#" class="side-item" data-page="history">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></span>سجل المشاهدة
+      </a>
+      <a href="#" class="side-item" data-page="liked">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg></span>المعجب بها
+      </a>
+      <a href="#" class="side-item" data-page="myvideos">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 12.5v-9l6 4.5-6 4.5z"/></svg></span>فيديوهاتي
+      </a>
+      <a href="#" class="side-item" data-page="channel-settings">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08s5.97 1.09 6 3.08c-1.29 1.94-3.5 3.22-6 3.22z"/></svg></span>إعدادات القناة
+      </a>
+      <a href="#" class="side-item" data-page="app-settings">
+        <span class="side-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.48.48 0 0 0-.48-.41h-3.84a.48.48 0 0 0-.48.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.48-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></span>إعدادات التطبيق
+      </a>
+      <hr>
+      <p class="side-title">قنواتي</p>
+      <div id="myChannelsList"></div>
+      <hr>
+      <p class="side-title">الاشتراكات</p>
+      <div id="subsList"><p class="empty-note">لا توجد اشتراكات بعد</p></div>
+    </aside>
+
+    <main class="content" id="content">
+      <section id="page-home" class="page active">
+        <div class="chips" id="chipsBar">
+          <button class="chip active" data-cat="الكل">الكل</button>
+          <button class="chip" data-cat="برمجة">برمجة</button>
+          <button class="chip" data-cat="موسيقى">موسيقى</button>
+          <button class="chip" data-cat="ألعاب">ألعاب</button>
+          <button class="chip" data-cat="رياضة">رياضة</button>
+          <button class="chip" data-cat="تقنية">تقنية</button>
+          <button class="chip" data-cat="طبخ">طبخ</button>
+          <button class="chip" data-cat="سفر">سفر</button>
+          <button class="chip" data-cat="لياقة">لياقة</button>
+          <button class="chip" data-cat="أفلام">أفلام</button>
+        </div>
+        <div class="video-grid" id="videoGrid"></div>
+        <div class="empty-state" id="emptyState" style="display:none;">
+          <div class="empty-icon"><svg viewBox="0 0 24 24" width="70" height="70" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg></div>
+          <h2>لا توجد فيديوهات</h2>
+          <p>قم بتحميل فيديوك الأول</p>
+        </div>
+      </section>
+
+      <section id="page-channel" class="page">
+        <div class="channel-banner" id="channelBanner"></div>
+        <div class="channel-header">
+          <div class="channel-avatar xlarge" id="channelPageAvatar"></div>
+          <div class="channel-page-info">
+            <h1 id="channelPageName"></h1>
+            <div class="channel-stats" id="channelPageStats"></div>
+            <p class="channel-desc" id="channelPageDesc"></p>
+            <div class="channel-actions">
+              <button class="btn-subscribe" id="channelPageSubBtn">اشتراك</button>
+            </div>
+          </div>
+        </div>
+        <div class="channel-tabs">
+          <button class="channel-tab active" data-ctab="videos">الفيديوهات</button>
+          <button class="channel-tab" data-ctab="shorts">شورتس</button>
+          <button class="channel-tab" data-ctab="about">حول</button>
+        </div>
+        <div class="channel-tab-content active" data-ctab-content="videos">
+          <div class="video-grid" id="channelVideosGrid"></div>
+        </div>
+        <div class="channel-tab-content" data-ctab-content="shorts">
+          <div class="shorts-grid" id="channelShortsGrid"></div>
+        </div>
+        <div class="channel-tab-content" data-ctab-content="about">
+          <div class="about-box" id="channelAboutBox"></div>
+        </div>
+      </section>
+
+      <section id="page-watch" class="page">
+        <div class="watch-container">
+          <div class="watch-main">
+            <div class="video-player"><video id="mainVideo" controls playsinline preload="metadata"></video></div>
+            <h1 class="watch-title" id="watchTitle"></h1>
+            <div class="watch-meta-row">
+              <div class="watch-channel">
+                <div class="channel-avatar large" id="watchAvatar"></div>
+                <div class="channel-details">
+                  <h3 id="watchChannelName"></h3>
+                  <p id="watchSubsCount"></p>
+                </div>
+                <button class="btn-subscribe" id="subscribeBtn">اشتراك</button>
+              </div>
+              <div class="watch-actions">
+                <div class="like-dislike-group">
+                  <button class="action-btn" id="likeBtn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg>
+                    <span id="likeCount">0</span>
+                  </button>
+                  <button class="action-btn" id="dislikeBtn">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M15 3H6c-.83 0-1.54.5-1.84 1.22l-3.02 7.05c-.09.23-.14.47-.14.73v2c0 1.1.9 2 2 2h6.31l-.95 4.57-.03.32c0 .41.17.79.44 1.06L9.83 23l6.59-6.59c.36-.36.58-.86.58-1.41V5c0-1.1-.9-2-2-2zm4 0v12h4V3h-4z"/></svg>
+                  </button>
+                </div>
+                <button class="action-btn" id="shareBtn">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+                  مشاركة
+                </button>
+              </div>
+            </div>
+            <div class="watch-description">
+              <div class="desc-meta"><span id="watchViews"></span> • <span id="watchTime"></span></div>
+              <p id="watchDescText"></p>
+            </div>
+            <div class="comments-section">
+              <h3 class="comments-title"><span id="commentsCount">0</span> تعليق</h3>
+              <div class="comment-form">
+                <div class="channel-avatar small" id="commentAvatar">؟</div>
+                <div class="comment-input-wrap">
+                  <input type="text" id="commentInput" placeholder="أضف تعليقاً..." maxlength="500">
+                  <div class="comment-actions">
+                    <button class="btn-cancel" id="cancelComment">إلغاء</button>
+                    <button class="btn-primary" id="submitComment">تعليق</button>
+                  </div>
+                </div>
+              </div>
+              <div id="commentsList" class="comments-list"></div>
+            </div>
+          </div>
+          <aside class="watch-sidebar" id="watchSidebar"></aside>
+        </div>
+      </section>
+
+      <section id="page-shorts" class="page">
+        <h1 class="page-title">شورتس</h1>
+        <div class="shorts-grid" id="shortsGrid"></div>
+        <div class="empty-state" id="shortsEmpty">
+          <div class="empty-icon"><svg viewBox="0 0 24 24" width="70" height="70" fill="currentColor"><path d="M17.77 10.32l-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zM10 14.65v-5.3L15 12l-5 2.65z"/></svg></div>
+          <h2>لا توجد شورتس</h2>
+          <p>قم بتحميل شورتس</p>
+        </div>
+      </section>
+
+      <section id="page-history" class="page">
+        <div class="page-header">
+          <h1 class="page-title">سجل المشاهدة</h1>
+          <button class="btn-danger" id="clearHistoryBtn">مسح السجل</button>
+        </div>
+        <div class="video-grid" id="historyGrid"></div>
+        <div class="empty-state" id="historyEmpty">
+          <div class="empty-icon"><svg viewBox="0 0 24 24" width="70" height="70" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+          <h2>لا يوجد سجل</h2>
+        </div>
+      </section>
+
+      <section id="page-liked" class="page">
+        <h1 class="page-title">المعجب بها</h1>
+        <div class="video-grid" id="likedGrid"></div>
+        <div class="empty-state" id="likedEmpty">
+          <div class="empty-icon"><svg viewBox="0 0 24 24" width="70" height="70" fill="currentColor"><path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/></svg></div>
+          <h2>لا توجد فيديوهات معجب بها</h2>
+        </div>
+      </section>
+
+      <section id="page-myvideos" class="page">
+        <div class="page-header">
+          <h1 class="page-title">فيديوهاتي</h1>
+          <button class="btn-primary" id="newVideoBtn">فيديو جديد</button>
+        </div>
+        <div class="video-grid" id="myVideosGrid"></div>
+        <div class="empty-state" id="myVideosEmpty">
+          <div class="empty-icon"><svg viewBox="0 0 24 24" width="70" height="70" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg></div>
+          <h2>لا توجد فيديوهات</h2>
+        </div>
+      </section>
+
+      <section id="page-channel-settings" class="page">
+        <h1 class="page-title">إعدادات القناة</h1>
+        <div class="settings-container">
+          <div class="settings-tabs">
+            <button class="settings-tab active" data-tab="general">عام</button>
+            <button class="settings-tab" data-tab="branding">الهوية</button>
+            <button class="settings-tab" data-tab="permissions">الصلاحيات</button>
+            <button class="settings-tab" data-tab="advanced">متقدم</button>
+          </div>
+          <div class="settings-content">
+            <div class="tab-content active" data-tab-content="general">
+              <div class="form-group"><label>اسم القناة</label><input type="text" id="channelNameInput" maxlength="50"></div>
+              <div class="form-group"><label>الوصف</label><textarea id="channelDescInput" rows="4" maxlength="1000"></textarea></div>
+              <div class="form-group"><label>الدولة</label>
+                <select id="channelCountryInput">
+                  <option value="EG">مصر</option><option value="SA">السعودية</option>
+                  <option value="AE">الإمارات</option><option value="MA">المغرب</option>
+                  <option value="DZ">الجزائر</option><option value="TN">تونس</option>
+                  <option value="JO">الأردن</option><option value="IQ">العراق</option>
+                </select>
+              </div>
+              <button class="btn-primary" id="saveGeneralBtn">حفظ</button>
+            </div>
+            <div class="tab-content" data-tab-content="branding">
+              <div class="form-group">
+                <label>صورة القناة</label>
+                <input type="file" id="channelAvatarFile" accept="image/*">
+                <img id="channelAvatarPreview" class="avatar-preview" alt="">
+              </div>
+              <div class="form-group">
+                <label>صورة الغلاف</label>
+                <input type="file" id="channelBannerFile" accept="image/*">
+                <img id="channelBannerPreview" class="banner-preview" alt="">
+              </div>
+              <button class="btn-primary" id="saveBrandingBtn">حفظ</button>
+            </div>
+            <div class="tab-content" data-tab-content="permissions">
+              <div class="form-group checkbox-group"><label><input type="checkbox" id="permComments" checked> السماح بالتعليقات</label></div>
+              <div class="form-group checkbox-group"><label><input type="checkbox" id="permEmbed" checked> السماح بالتضمين</label></div>
+              <div class="form-group checkbox-group"><label><input type="checkbox" id="permSubs" checked> إظهار عدد المشتركين</label></div>
+              <button class="btn-primary" id="savePermsBtn">حفظ</button>
+            </div>
+            <div class="tab-content" data-tab-content="advanced">
+              <div class="form-group"><label>الكلمات المفتاحية</label><input type="text" id="channelKeywords" maxlength="200"></div>
+              <div class="form-group"><label>لغة القناة</label>
+                <select id="channelLang">
+                  <option value="ar">العربية</option><option value="en">الإنجليزية</option><option value="fr">الفرنسية</option>
+                </select>
+              </div>
+              <button class="btn-primary" id="saveAdvancedBtn">حفظ</button>
+              <div class="danger-zone">
+                <h3>منطقة الخطر</h3>
+                <button class="btn-danger" id="deleteChannelBtn">حذف القناة</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-app-settings" class="page">
+        <h1 class="page-title">إعدادات التطبيق</h1>
+        <div class="settings-container">
+          <div class="settings-section">
+            <h2>الحساب</h2>
+            <div class="form-group"><label>الاسم</label><input type="text" id="appUserName" maxlength="30"></div>
+            <div class="form-group"><label>البريد الإلكتروني</label><input type="email" id="appUserEmail"></div>
+            <div class="form-group"><label>كلمة المرور الحالية (لتغيير كلمة المرور)</label><input type="password" id="appCurrentPassword"></div>
+            <div class="form-group"><label>كلمة المرور الجديدة</label><input type="password" id="appNewPassword"></div>
+            <button class="btn-primary" id="saveAppUserBtn">حفظ</button>
+            <button class="btn-danger" id="logoutBtn" style="margin-top:10px;">تسجيل الخروج</button>
+          </div>
+
+          <div class="settings-section">
+            <h2>المظهر</h2>
+            <div class="form-group">
+              <label>السمة</label>
+              <select id="themeSelect">
+                <option value="dark">داكن</option>
+                <option value="light">فاتح</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>حجم خط الواجهة</label>
+              <select id="fontSizeSelect">
+                <option value="small">صغير</option>
+                <option value="normal" selected>عادي</option>
+                <option value="large">كبير</option>
+              </select>
+            </div>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="autoplayNext"> تشغيل الفيديو التالي تلقائياً</label></div>
+            <button class="btn-primary" id="saveAppearanceBtn">حفظ</button>
+          </div>
+
+          <div class="settings-section">
+            <h2>التشغيل</h2>
+            <div class="form-group">
+              <label>جودة الفيديو المفضلة</label>
+              <select id="qualitySelect">
+                <option value="auto">تلقائي</option>
+                <option value="1080">1080p</option>
+                <option value="720">720p</option>
+                <option value="480">480p</option>
+                <option value="360">360p</option>
+              </select>
+            </div>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="autoplayVideos" checked> تشغيل الفيديوهات تلقائياً</label></div>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="showCaptions"> إظهار الترجمات</label></div>
+            <button class="btn-primary" id="savePlaybackBtn">حفظ</button>
+          </div>
+
+          <div class="settings-section">
+            <h2>الإشعارات</h2>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="notifySubs" checked> إشعارات الاشتراكات الجديدة</label></div>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="notifyComments" checked> إشعارات التعليقات</label></div>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="notifyLikes" checked> إشعارات الإعجابات</label></div>
+            <button class="btn-primary" id="saveNotificationsBtn">حفظ</button>
+          </div>
+
+          <div class="settings-section">
+            <h2>الخصوصية</h2>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="saveHistory" checked> حفظ سجل المشاهدة</label></div>
+            <div class="form-group checkbox-group"><label><input type="checkbox" id="showActivity"> إظهار نشاطي للآخرين</label></div>
+            <button class="btn-primary" id="savePrivacyBtn">حفظ</button>
+          </div>
+
+          <div class="settings-section">
+            <h2>البيانات</h2>
+            <div class="data-row">
+              <span>سجل المشاهدة</span>
+              <button class="btn-danger" id="clearHistoryBtn2">مسح السجل</button>
+            </div>
+            <div class="data-row">
+              <span>الفيديوهات المعجب بها</span>
+              <button class="btn-danger" id="clearLikedBtn">مسح الإعجابات</button>
+            </div>
+            <div class="data-row">
+              <span>الاشتراكات</span>
+              <button class="btn-danger" id="clearSubsBtn">إلغاء الاشتراكات</button>
+            </div>
+            <div class="data-row">
+              <span>التعليقات</span>
+              <button class="btn-danger" id="clearCommentsBtn">مسح تعليقاتي</button>
+            </div>
+            <div class="data-row">
+              <span>استخدام التخزين</span>
+              <span id="storageUsage" style="color:#aaa;font-size:13px;">0 MB</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <button class="modal-close" data-close="loginModal">&times;</button>
+      <h2>تسجيل الدخول</h2>
+      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" id="loginEmail" autocomplete="email"></div>
+      <div class="form-group"><label>كلمة المرور</label><input type="password" id="loginPassword" autocomplete="current-password"></div>
+      <button class="btn-primary" id="loginSubmit">دخول</button>
+      <p class="modal-note">ليس لديك حساب؟ <a href="#" id="registerLink">إنشاء حساب</a></p>
+    </div>
+  </div>
+
+  <div class="modal" id="registerModal">
+    <div class="modal-content">
+      <button class="modal-close" data-close="registerModal">&times;</button>
+      <h2>إنشاء حساب</h2>
+      <div class="form-group"><label>الاسم</label><input type="text" id="registerName" maxlength="30"></div>
+      <div class="form-group"><label>البريد الإلكتروني</label><input type="email" id="registerEmail" autocomplete="email"></div>
+      <div class="form-group"><label>كلمة المرور (6 أحرف على الأقل)</label><input type="password" id="registerPassword" autocomplete="new-password"></div>
+      <button class="btn-primary" id="registerSubmit">إنشاء حساب</button>
+    </div>
+  </div>
+
+  <div class="modal" id="uploadModal">
+    <div class="modal-content wide">
+      <button class="modal-close" data-close="uploadModal">&times;</button>
+      <h2>تحميل فيديو</h2>
+      <div class="form-group"><label>ملف الفيديو</label><input type="file" id="videoFile" accept="video/*"></div>
+      <div class="form-group"><label>الصورة المصغرة</label><input type="file" id="videoThumbFile" accept="image/*"><img id="thumbPreview" class="thumb-preview" alt=""></div>
+      <div class="form-group"><label>العنوان</label><input type="text" id="videoTitle" maxlength="100"></div>
+      <div class="form-group"><label>الوصف</label><textarea id="videoDesc" rows="3" maxlength="5000"></textarea></div>
+      <div class="form-group"><label>التصنيف</label>
+        <select id="videoCategory">
+          <option value="برمجة">برمجة</option><option value="موسيقى">موسيقى</option>
+          <option value="ألعاب">ألعاب</option><option value="رياضة">رياضة</option>
+          <option value="تقنية">تقنية</option><option value="طبخ">طبخ</option>
+          <option value="سفر">سفر</option><option value="لياقة">لياقة</option>
+          <option value="أفلام">أفلام</option>
+        </select>
+      </div>
+      <div class="form-group checkbox-group"><label><input type="checkbox" id="isShortCheck"> هذا شورتس</label></div>
+      <button class="btn-primary" id="uploadSubmit">نشر الفيديو</button>
+    </div>
+  </div>
+
+  <div class="modal" id="createChannelModal">
+    <div class="modal-content">
+      <button class="modal-close" data-close="createChannelModal">&times;</button>
+      <h2>إنشاء قناة</h2>
+      <div class="form-group"><label>اسم القناة</label><input type="text" id="newChannelName" maxlength="50"></div>
+      <div class="form-group"><label>الوصف</label><textarea id="newChannelDesc" rows="3" maxlength="1000"></textarea></div>
+      <button class="btn-primary" id="createChannelSubmit">إنشاء</button>
+    </div>
+  </div>
+
+  <div class="modal" id="videoSettingsModal">
+    <div class="modal-content">
+      <button class="modal-close" data-close="videoSettingsModal">&times;</button>
+      <h2>إعدادات الفيديو</h2>
+      <div class="form-group">
+        <label>الصورة المصغرة</label>
+        <input type="file" id="editVideoThumbFile" accept="image/*">
+        <img id="editThumbPreview" class="thumb-preview" alt="">
+      </div>
+      <div class="form-group"><label>العنوان</label><input type="text" id="editVideoTitle" maxlength="100"></div>
+      <div class="form-group"><label>الوصف</label><textarea id="editVideoDesc" rows="3" maxlength="5000"></textarea></div>
+      <div class="form-group"><label>الخصوصية</label>
+        <select id="editVideoPrivacy">
+          <option value="public">عام</option><option value="unlisted">غير مدرج</option><option value="private">خاص</option>
+        </select>
+      </div>
+      <div class="form-group checkbox-group"><label><input type="checkbox" id="editVideoComments" checked> السماح بالتعليقات</label></div>
+      <button class="btn-primary" id="saveVideoSettingsBtn">حفظ</button>
+      <button class="btn-danger" id="deleteVideoBtn" style="margin-top:10px;">حذف الفيديو</button>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <button class="back-to-top" id="backToTop">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
